@@ -18,18 +18,22 @@ TodoList.addEventListener('click', function (event) {
 });
 
 addBtn.addEventListener('click', function (event) {
-    const inputValue = inputTodoLi.value
-    if (inputTodoLi.value) {
-        {
-            const newLi = document.createElement('li');
-            newLi.textContent = inputTodoLi.value;
-            const deleteBtn = document.createElement('button');
-            deleteBtn.textContent = 'Delete';
-            deleteBtn.classList.add('deleteBtn');
-            newLi.appendChild(deleteBtn);
-            TodoList.appendChild(newLi);
-            inputTodoLi.value = '';
 
-        }
+    const inputValue = inputTodoLi.value
+
+    if (inputTodoLi.value.trim() === '') {
+        return
     }
+
+    const newLi = document.createElement('li');
+    newLi.textContent = inputTodoLi.value;
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.classList.add('deleteBtn');
+    newLi.appendChild(deleteBtn);
+    TodoList.appendChild(newLi);
+    inputTodoLi.value = '';
+
+
+
 });
